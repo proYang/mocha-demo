@@ -53,8 +53,6 @@ describe('POST /user/info failed', function () {
 // agent.post('create_topic').end('...'); // 此时的 agent 中有用户登陆后的 cookie
 
 
-
-
 // /**
 //  * @example 示例二
 //  */
