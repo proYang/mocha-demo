@@ -32,3 +32,19 @@ describe('GET /user', function () {
             });
     });
 });
+
+// 断言库powerassert
+describe('PUT /user', function () {
+    it('respond with json', function (done) {
+        request(app)
+            .put('/user')
+            .set('Accept', 'application/json')
+            .send({ name: 'slane' })
+            .expect(200)
+            .expect('Content-Type', /json/)
+            .end(function (err, res) {
+                assert(res.body.name === 'slane')
+                done();
+            });
+    });
+});
