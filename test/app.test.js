@@ -1,5 +1,5 @@
 const app = require('../src/app')
-const request = require('supertest');
+const request = require('supertest')
 const should = require('should')
 const assert = require('power-assert')
 
