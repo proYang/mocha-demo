@@ -1,5 +1,6 @@
 const path = require('path')
 const gulp = require('gulp')
+const istanbul = require('gulp-istanbul') // 覆盖率测试模块
 const mocha = require('gulp-mocha')
 const env = require('gulp-env')
 
@@ -24,6 +25,10 @@ gulp.task('test', ['set-env'], function() {
         timeout: 5000
       })
     )
+    // Creating the reports after tests ran 
+    .pipe(istanbul.writeReports())
+    // Enforce a coverage of at least 90%
+    .pipe(istanbul.enforceThresholds({ thresholds: { global: 90 } }))
     .once('error', function() {
       process.exit(1);
     })
